@@ -260,9 +260,7 @@ const taskKey = datastore.key([kind, name]);
 
 // The Cloud Datastore key for the new entity
 const countryKey = datastore.key(["countries", "id"]);
-const data = datastore.get(countryKey, (err, entity) => {
-  return entity
-});
+const data = datastore.get(countryKey);
 console.log(data)
 coordinates.forEach(item => {
   if (item.country === "Peru") {
