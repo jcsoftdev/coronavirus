@@ -462,7 +462,8 @@ let listener = app.listen(8081, function() {
 app.use(cors());
 app.use("/", express.static("public"));
 app.get("/all/", async function(req, res) {
-  let all = await db.fetch("all");
+  const data = await datastore.get(allKey);
+  let all = data[0]
   res.send(all);
 });
 
