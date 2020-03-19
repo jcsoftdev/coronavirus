@@ -262,7 +262,7 @@ const countryKey = datastore.key(["countries", "id"]);
 
 (async () => {
   const data = await datastore.get(allKey);
-  console.log(data[0].countries);
+  console.log(data[0]);
   
 })();
 
