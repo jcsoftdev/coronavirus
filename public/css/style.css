@@ -19,8 +19,8 @@
 }
 @media (max-width:480px){
   .total-cases{
-    width: 250px;
-    left: calc(50% - 75px);
+    width: 200px;
+    left: calc(50% - 120px);
     bottom: 0;
   }
 }
