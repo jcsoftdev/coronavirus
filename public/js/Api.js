@@ -1,7 +1,7 @@
 // const axios = require('axios').default;
 
 // const api = new Axios()
-const URL_BASE = 'https://8081-dot-10893737-dot-devshell.appspot.com/'
+const URL_BASE = ''
 class Api {
   async getData(URL) {
     const response = await axios.get(URL_BASE.concat(URL), {
