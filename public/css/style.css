@@ -1,8 +1,10 @@
 .total-cases{
-  width: 50vh;
+  width: 400px;
+  padding: 20px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   z-index: 999;
+  font-size: 16px;
 }
