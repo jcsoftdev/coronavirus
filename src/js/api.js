@@ -249,24 +249,21 @@ const coordinates = [
   }
 ];
 
-// The kind for the new entity
-const kind = "all";
-
-// The name/ID for the new entity
-const name = "id";
+(async () => {
+  const data = await datastore.get(countryKey);
+  console.log(data);
+  coordinates.forEach(item => {
+    if (item.country === "Peru") {
+      console.log({ countries: { lat: item.lat, lon: item.lon } });
+    }
+  });
+})();
 
 // The Cloud Datastore key for the new entity
-const taskKey = datastore.key([kind, name]);
-
+const taskKey = datastore.key(["all", "id"]);
 // The Cloud Datastore key for the new entity
 const countryKey = datastore.key(["countries", "id"]);
-const data = datastore.get(countryKey);
-console.log(data)
-coordinates.forEach(item => {
-  if (item.country === "Peru") {
-    console.log({ countries: { lat: item.lat, lon: item.lon } });
-  }
-});
+
 let getall = setInterval(async () => {
   let response;
   try {
