@@ -434,10 +434,25 @@ let listener = app.listen(8081, function() {
 });
 
 app.use(cors());
-
+app.use(express.static(__dirname + '../../public'));
 app.get("/all/", async function(req, res) {
   let all = await db.fetch("all");
   res.send(all);
+});
+app.get('/index', (req, res) => {
+  res.sendFile('index.html', {
+    root: './public/'
+  });
+});
+app.get('/js/index.js', (req, res) => {
+  res.sendFile('index.js', {
+    root: './public/js/'
+  });
+});
+app.get('/js/Api.js', (req, res) => {
+  res.sendFile('Api.js', {
+    root: './public/js/'
+  });
 });
 
 app.get("/countries/", async function(req, res) {
