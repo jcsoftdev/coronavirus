@@ -256,12 +256,12 @@ coordinates.forEach(item => {
   }
 });
 // The Cloud Datastore key for the new entity
-const taskKey = datastore.key(["all", "id"]);
+const allKey = datastore.key(["all", "id"]);
 // The Cloud Datastore key for the new entity
 const countryKey = datastore.key(["countries", "id"]);
 
 (async () => {
-  const data = await datastore.get(countryKey);
+  const data = await datastore.get(allKey);
   console.log(data[0].countries);
   
 })();
@@ -295,7 +295,7 @@ let getall = setInterval(async () => {
   result.updated = Date.now();
   // Prepares the new entity
   const task = {
-    key: taskKey,
+    key: allKey,
     data: result
   };
   // Saves the entity
@@ -454,12 +454,6 @@ let getall = setInterval(async () => {
   console.log("Updated The Countries");
 }, 60000);
 
-// app.get("/", async function(request, response) {
-//   let a = await db.fetch("all");
-//   response.send(
-//     `${a.cases} cases are reported of the COVID-19 Novel Coronavirus strain<br> ${a.deaths} have died from it <br>\n${a.recovered} have recovered from it <br> Get the endpoint /all to get information for all cases <br> get the endpoint /countries for getting the data sorted country wise <br>get the endpoint /countries/[country-name] for getting the data for a specific country`
-//   );
-// });
 
 let listener = app.listen(8081, function() {
   console.log("Your app is listening on port " + listener.address().port);
@@ -471,19 +465,10 @@ app.get("/all/", async function(req, res) {
   let all = await db.fetch("all");
   res.send(all);
 });
-app.get("/js/index.js", (req, res) => {
-  res.sendFile("index.js", {
-    root: "./public/js/"
-  });
-});
-app.get("/js/Api.js", (req, res) => {
-  res.sendFile("Api.js", {
-    root: "./public/js/"
-  });
-});
 
 app.get("/countries/", async function(req, res) {
-  let countries = await db.fetch("countries");
+  const data = await datastore.get(countryKey);
+  let countries = data[0].countries
   if (req.query["sort"]) {
     try {
       const sortProp = req.query["sort"];
