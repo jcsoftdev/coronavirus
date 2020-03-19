@@ -433,7 +433,7 @@ let listener = app.listen(8081, function() {
   console.log("Your app is listening on port " + listener.address().port);
 });
 
-app.use(cors());
+// app.use(cors());
 app.use(express.static(__dirname + '../../public'));
 app.get("/all/", async function(req, res) {
   let all = await db.fetch("all");
