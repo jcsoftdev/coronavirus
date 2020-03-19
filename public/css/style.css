@@ -17,7 +17,7 @@
   margin: 0;
   padding: .5rem;
 }
-@media (max-height:480px){
+@media (max-width:480px){
   .total-cases{
     width: 250px;
     left: calc(50vw - 75px);
