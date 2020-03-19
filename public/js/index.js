@@ -25,8 +25,11 @@ function renderExtractData({
   <div>
     <p> <strong>${country} </strong> </p>
     <p> confirmados: ${cases} </p>
+    <p> confirmados (hoy): ${todayCases} </p>
     <p style="color:red"> muertes: ${deaths} </p>
+    <p style="color:red"> muertes (hoy): ${todayDeaths} </p>
     <p style="color:green"> recuperados: ${recovered} </p>
+    <p style="color:orange"> criticos: ${critical} </p>
   </div>
 `;
 }
