@@ -258,11 +258,7 @@ const name = "id";
 // The Cloud Datastore key for the new entity
 const taskKey = datastore.key([kind, name]);
 
-// Prepares the new entity
-const task = {
-  key: taskKey,
-  data: result
-};
+
 // The Cloud Datastore key for the new entity
 const countryKey = datastore.key(["countries", "id"]);
 datastore.get(countryKey, (err, entity) => {
@@ -300,7 +296,11 @@ let getall = setInterval(async () => {
     }
   });
   result.updated = Date.now();
-
+    // Prepares the new entity
+  const task = {
+    key: taskKey,
+    data: result
+  };
   // Saves the entity
   await datastore.save(task);
   // db.set("all", result);
