@@ -258,12 +258,12 @@ const name = "id";
 // The Cloud Datastore key for the new entity
 const taskKey = datastore.key([kind, name]);
 
-
 // The Cloud Datastore key for the new entity
 const countryKey = datastore.key(["countries", "id"]);
-datastore.get(countryKey, (err, entity) => {
-  console.log(entity);
+const data = datastore.get(countryKey, (err, entity) => {
+  return entity
 });
+console.log(data)
 coordinates.forEach(item => {
   if (item.country === "Peru") {
     console.log({ countries: { lat: item.lat, lon: item.lon } });
@@ -296,7 +296,7 @@ let getall = setInterval(async () => {
     }
   });
   result.updated = Date.now();
-    // Prepares the new entity
+  // Prepares the new entity
   const task = {
     key: taskKey,
     data: result
