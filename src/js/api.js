@@ -452,7 +452,7 @@ let getall = setInterval(async () => {
 
   // db.set("countries", resultAll);
   console.log("Updated The Countries");
-}, 60000);
+}, 6000);
 
 
 let listener = app.listen(8081, function() {
