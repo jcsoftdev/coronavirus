@@ -5,13 +5,22 @@ async function renderMap() {
     "pk.eyJ1IjoiamNzb2Z0aWEiLCJhIjoiY2s3cjBsbzk5MDFvcTNlbXBpeHVhN3B4dSJ9.e8U2_Nao4uub_Qa7gtSoIA";
   var map = L.mapbox
     .map("map")
-    .setView([-12.048, -77.0501], 2)
+    .setView([-12.048, -77.0501], 3)
     .addLayer(L.mapbox.styleLayer("mapbox://styles/mapbox/dark-v10"));
-  const markers = await renderData()
-    map.addLayer(markers);
- 
+  const markers = await renderData();
+  map.addLayer(markers);
+  renderTotalCases()
 }
-
+function createTeampleTotalCases({ deaths, cases, recovered, updated }) {
+  return `
+    <h1 style="text-align:center">Coronavirus</h1>
+    <p>Casos Totales en el mundo</p>
+    <p><strong>Afectados:</strong> ${cases}</p>
+    <p><strong>Muertes:</strong> ${deaths}</p>
+    <p><strong>Recuperados:</strong> ${recovered}</p>
+    <p><strong>Actualizacion:</strong> ${Date(updated)}</p>
+  `;
+}
 function renderExtractData({
   country,
   cases,
@@ -33,8 +42,8 @@ function renderExtractData({
   </div>
 `;
 }
+const API = new Api();
 async function renderData() {
-  const API = new Api();
   const myIcon = L.icon({
     iconRetinaUrl:
       "https://www.flaticon.com/premium-icon/icons/svg/2667/2667578.svg",
@@ -45,26 +54,34 @@ async function renderData() {
     loading = true;
     const countries = await API.getCasesByCountry();
     loading = false;
-    markers = await renderMarkers(countries, myIcon)
+    markers = await renderMarkers(countries, myIcon);
     console.log(countries.locations);
   } catch (error) {
     console.log(error);
   }
-  return markers
+  return markers;
 }
-async function renderMarkers(data, myIcon){
+async function renderTotalCases(){
+  const $total = document.querySelector('#total')
+  const data = await API.getTotalCases();
+  $total.innerHTML = createTeampleTotalCases(data)
+}
+async function renderMarkers(data, myIcon) {
   var markers = new L.MarkerClusterGroup();
-  data.map((item)=>{
-    console.log(item)
+  data.map(item => {
+    console.log(item);
     var title = renderExtractData(item);
-    var marker = L.marker(new L.LatLng(item.coordinates.lat, item.coordinates.lon), {
-      icon: myIcon,
-      title: item.country,
-    });
+    var marker = L.marker(
+      new L.LatLng(item.coordinates.lat, item.coordinates.lon),
+      {
+        icon: myIcon,
+        title: item.country
+      }
+    );
     marker.bindPopup(title);
     markers.addLayer(marker);
-  })
+  });
 
-  return markers
+  return markers;
 }
-renderMap()
+renderMap();
