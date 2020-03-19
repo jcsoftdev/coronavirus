@@ -4,6 +4,11 @@ let cors = require("cors");
 let axios = require("axios");
 let cheerio = require("cheerio");
 let db = require("quick.db");
+// Imports the Google Cloud client library
+const { Datastore } = require("@google-cloud/datastore");
+
+// Creates a client
+const datastore = new Datastore();
 const coordinates = [
   { country: "Japan", lat: 35.685, lon: 139.7514 },
   { country: "USA", lat: 40.6943, lon: -73.9249 },
@@ -42,13 +47,13 @@ const coordinates = [
   { country: "Australia", lat: -33.92, lon: 151.1852 },
   { country: "Saudi Arabia", lat: 24.6408, lon: 46.7727 },
   { country: "Burma", lat: 16.7834, lon: 96.1667 },
-  { country: "Ivory Coast", lat: 7.545511, lon: -5.547545},
+  { country: "Ivory Coast", lat: 7.545511, lon: -5.547545 },
   { country: "South Africa", lat: -26.17, lon: 28.03 },
   { country: "Germany", lat: 52.5218, lon: 13.4015 },
   { country: "Algeria", lat: 36.7631, lon: 3.0506 },
   { country: "Italy", lat: 41.896, lon: 12.4833 },
   { country: "Gambia", lat: 13.4539, lon: -16.5917 },
-  { country: "Vatican City", lat: 41.902360, lon: 12.453320 },
+  { country: "Vatican City", lat: 41.90236, lon: 12.45332 },
   { country: "Afghanistan", lat: 37.5663, lon: 126.9997 },
   { country: "Greece", lat: 6.9166, lon: 158.15 },
   { country: "Morocco", lat: 33.6, lon: -7.6164 },
@@ -129,9 +134,9 @@ const coordinates = [
   { country: "Albania", lat: 41.3275, lon: 19.8189 },
   { country: "Nepal", lat: 27.7167, lon: 85.3166 },
   { country: "Mongolia", lat: 47.9167, lon: 106.9166 },
-  { country: "Montserrat", lat: 16.7494365 , lon:-62.1927489 },
+  { country: "Montserrat", lat: 16.7494365, lon: -62.1927489 },
   { country: "Rwanda", lat: -1.9536, lon: 30.0605 },
-  { country: "DRC", lat: 	-4.322447, lon: 	15.307045 },
+  { country: "DRC", lat: -4.322447, lon: 15.307045 },
   { country: "Kyrgyzstan", lat: 42.8731, lon: 74.5852 },
   { country: "Norway", lat: 59.9167, lon: 10.75 },
   { country: "CAR", lat: 4.3666, lon: 18.5583 },
@@ -170,7 +175,7 @@ const coordinates = [
   { country: "Cyprus", lat: 6.9166, lon: 158.15 },
   { country: "Sri Lanka", lat: 6.932, lon: 79.8578 },
   { country: "Botswana", lat: -24.6463, lon: 25.9119 },
-  { country: "St. Barth", lat: 17.8961800, lon:-62.849780},
+  { country: "St. Barth", lat: 17.89618, lon: -62.84978 },
   { country: "Barbados", lat: 13.102, lon: -59.6165 },
   { country: "Fiji", lat: -18.133, lon: 178.4417 },
   { country: "Iceland", lat: 64.15, lon: -21.95 },
@@ -194,7 +199,7 @@ const coordinates = [
   { country: "U.S. Virgin Islands", lat: 17.72751, lon: 18.3419 },
   { country: "Tonga", lat: -21.1385, lon: -175.2206 },
   { country: "Saint Lucia", lat: 14.002, lon: -61 },
-  { country: "Saint Martin", lat: 	18.073099, lon: -63.082199 },
+  { country: "Saint Martin", lat: 18.073099, lon: -63.082199 },
   { country: "Monaco", lat: 43.7396, lon: 7.4069 },
   { country: "Liechtenstein", lat: 47.1337, lon: 9.5167 },
   { country: "Antigua and Barbuda", lat: 17.118, lon: -61.85 },
@@ -244,7 +249,6 @@ const coordinates = [
   }
 ];
 
-
 coordinates.forEach(item => {
   if (item.country === "Peru") {
     console.log({ countries: { lat: item.lat, lon: item.lon } });
@@ -277,7 +281,24 @@ let getall = setInterval(async () => {
     }
   });
   result.updated = Date.now();
-  db.set("all", result);
+  // The kind for the new entity
+  const kind = "all";
+
+  // The name/ID for the new entity
+  const name = "id";
+
+  // The Cloud Datastore key for the new entity
+  const taskKey = datastore.key([kind, name]);
+
+  // Prepares the new entity
+  const task = {
+    key: taskKey,
+    data: result
+  };
+
+  // Saves the entity
+  await datastore.save(task);
+  // db.set("all", result);
   console.log("Updated The Cases", result);
 
   const resultAll = [];
@@ -331,7 +352,6 @@ let getall = setInterval(async () => {
     }
     // get cases
     if (i % totalColumns === casesColIndex) {
-      
       let cases = cell.children[0].data || "";
       resultAll[resultAll.length - 1].cases = parseInt(
         cases.trim().replace(/,/g, "") || "0",
@@ -340,16 +360,15 @@ let getall = setInterval(async () => {
     }
     // get today cases
     if (i % totalColumns === todayCasesColIndex) {
-      let cases
+      let cases;
       try {
         if (cell.children[0]) {
-          
           cases = cell.children[0].data || "";
-        }else{
-          cases = ""
+        } else {
+          cases = "";
         }
       } catch (error) {
-        console.log('Error',error);
+        console.log("Error", error);
       }
       resultAll[resultAll.length - 1].todayCases = parseInt(
         cases.trim().replace(/,/g, "") || "0",
@@ -366,16 +385,15 @@ let getall = setInterval(async () => {
     }
     // get today deaths
     if (i % totalColumns === todayDeathsColIndex) {
-      let deaths 
+      let deaths;
       try {
         if (cell.children[0]) {
-          
           deaths = cell.children[0].data || "";
-        }else{
-          deaths = ""
+        } else {
+          deaths = "";
         }
       } catch (error) {
-        console.log('Error',error);
+        console.log("Error", error);
       }
       resultAll[resultAll.length - 1].todayDeaths = parseInt(
         deaths.trim().replace(/,/g, "") || "0",
@@ -384,15 +402,15 @@ let getall = setInterval(async () => {
     }
     // get cured
     if (i % totalColumns === curedColIndex) {
-      let cured
+      let cured;
       try {
         if (cell.children[0]) {
           cured = cell.children[0].data || "";
-        }else{
-          cured = ""
+        } else {
+          cured = "";
         }
       } catch (error) {
-        console.log('Error',error);
+        console.log("Error", error);
       }
       resultAll[resultAll.length - 1].recovered = parseInt(
         cured.trim().replace(/,/g, "") || 0,
@@ -401,16 +419,15 @@ let getall = setInterval(async () => {
     }
     // get critical
     if (i % totalColumns === criticalColIndex) {
-      let critical 
+      let critical;
       try {
         if (cell.children[0]) {
-          
           critical = cell.children[0].data || "";
-        }else{
-          critical = ""
+        } else {
+          critical = "";
         }
       } catch (error) {
-        console.log('Error',error);
+        console.log("Error", error);
       }
       resultAll[resultAll.length - 1].critical = parseInt(
         critical.trim().replace(/,/g, "") || "0",
@@ -418,9 +435,22 @@ let getall = setInterval(async () => {
       );
     }
   }
-  db.set("countries", resultAll);
+   // The Cloud Datastore key for the new entity
+  const countryKey = datastore.key(['countries', 'id']);
+
+  // Prepares the new entity
+  const countries = {
+    key: countryKey,
+    data: {
+      countries: resultAll
+    },
+  };
+
+   // Saves the entity
+   await datastore.save(countries);
+  // db.set("countries", resultAll);
   console.log("Updated The Countries", resultAll);
-}, 60000);
+}, 6000);
 
 // app.get("/", async function(request, response) {
 //   let a = await db.fetch("all");
@@ -434,24 +464,19 @@ let listener = app.listen(8081, function() {
 });
 
 app.use(cors());
-app.use('/', express.static('public'))
+app.use("/", express.static("public"));
 app.get("/all/", async function(req, res) {
   let all = await db.fetch("all");
   res.send(all);
 });
-app.get('/index', (req, res) => {
-  res.sendFile('index.html', {
-    root: './public/'
+app.get("/js/index.js", (req, res) => {
+  res.sendFile("index.js", {
+    root: "./public/js/"
   });
 });
-app.get('/js/index.js', (req, res) => {
-  res.sendFile('index.js', {
-    root: './public/js/'
-  });
-});
-app.get('/js/Api.js', (req, res) => {
-  res.sendFile('Api.js', {
-    root: './public/js/'
+app.get("/js/Api.js", (req, res) => {
+  res.sendFile("Api.js", {
+    root: "./public/js/"
   });
 });
 
