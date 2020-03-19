@@ -3,7 +3,7 @@ let app = express();
 let cors = require("cors");
 let axios = require("axios");
 let cheerio = require("cheerio");
-let db = require("quick.db");
+// let db = require("quick.db");
 // Imports the Google Cloud client library
 const { Datastore } = require("@google-cloud/datastore");
 
