@@ -38,7 +38,7 @@ async function renderData() {
   const myIcon = L.icon({
     iconRetinaUrl:
       "https://www.flaticon.com/premium-icon/icons/svg/2667/2667578.svg",
-    iconSize: [35, 35]
+    iconSize: [55, 55]
   });
   let markers = null;
   try {
@@ -59,9 +59,8 @@ async function renderMarkers(data, myIcon){
     var title = renderExtractData(item);
     var marker = L.marker(new L.LatLng(item.coordinates.lat, item.coordinates.lon), {
       icon: myIcon,
-      title: title
+      title: item.country,
     });
-    marker.bindPopup(title);
     marker.bindPopup(title);
     markers.addLayer(marker);
   })
