@@ -249,6 +249,25 @@ const coordinates = [
   }
 ];
 
+// The kind for the new entity
+const kind = "all";
+
+// The name/ID for the new entity
+const name = "id";
+
+// The Cloud Datastore key for the new entity
+const taskKey = datastore.key([kind, name]);
+
+// Prepares the new entity
+const task = {
+  key: taskKey,
+  data: result
+};
+// The Cloud Datastore key for the new entity
+const countryKey = datastore.key(["countries", "id"]);
+datastore.get(countryKey, (err, entity) => {
+  console.log(entity);
+});
 coordinates.forEach(item => {
   if (item.country === "Peru") {
     console.log({ countries: { lat: item.lat, lon: item.lon } });
@@ -281,20 +300,6 @@ let getall = setInterval(async () => {
     }
   });
   result.updated = Date.now();
-  // The kind for the new entity
-  const kind = "all";
-
-  // The name/ID for the new entity
-  const name = "id";
-
-  // The Cloud Datastore key for the new entity
-  const taskKey = datastore.key([kind, name]);
-
-  // Prepares the new entity
-  const task = {
-    key: taskKey,
-    data: result
-  };
 
   // Saves the entity
   await datastore.save(task);
@@ -435,25 +440,22 @@ let getall = setInterval(async () => {
       );
     }
   }
-   // The Cloud Datastore key for the new entity
-  const countryKey = datastore.key(['countries', 'id']);
 
   // Prepares the new entity
   const countries = {
     key: countryKey,
     data: {
       countries: resultAll
-    },
+    }
   };
 
-   // Saves the entity
-   await datastore.save(countries);
+  // Saves the entity
+  await datastore.save(countries);
   //  const countryKey = datastore.key(['Company', 123]);
 
-  datastore.get(countryKey, (err, entity) => {console.log(entity)});
   // db.set("countries", resultAll);
   console.log("Updated The Countries");
-}, 6000);
+}, 60000);
 
 // app.get("/", async function(request, response) {
 //   let a = await db.fetch("all");
