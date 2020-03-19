@@ -16,7 +16,7 @@
   align-items: center;
   font-size: 16px;
 }
-.total-cases p{
+.total-cases p:first-child{
   display: flex;
   flex-direction: row-reverse;
 }
