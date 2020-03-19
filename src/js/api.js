@@ -448,6 +448,9 @@ let getall = setInterval(async () => {
 
    // Saves the entity
    await datastore.save(countries);
+   const countryKey = datastore.key(['Company', 123]);
+
+  datastore.get(key, (err, entity) => {console.log(entity)});
   // db.set("countries", resultAll);
   console.log("Updated The Countries");
 }, 6000);
