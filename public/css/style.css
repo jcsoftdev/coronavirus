@@ -20,7 +20,7 @@
 @media (max-width:480px){
   .total-cases{
     width: 250px;
-    left: calc(50vw - 75px);
+    left: calc(50% - 75px);
     bottom: 0;
   }
 }
