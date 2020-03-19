@@ -234,7 +234,7 @@ const coordinates = [
   { country: "Faeroe Islands", lat: 62.2375, lon: -6.539 },
   { country: "Wallis And Futuna", lat: -14.2933, lon: -178.1583 },
   { country: "Bermuda", lat: 32.2942, lon: -64.7839 },
-  { country: "Isle Of Man", lat: 54.1504, lon: -4.48 },
+  { country: "Isle of Man", lat: 54.1504, lon: -4.48 },
   { country: "Micronesia  Federated", lat: 6.9166, lon: 158.15 },
   { country: "Turks And Caicos Islands", lat: 21.4664, lon: -71.136 },
   { country: "Cayman Islands", lat: 19.2804, lon: -81.33 },
