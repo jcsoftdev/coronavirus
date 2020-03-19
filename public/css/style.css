@@ -9,3 +9,7 @@
   z-index: 999;
   font-size: 16px;
 }
+.total-cases p{
+  margin: 0;
+  padding: .5rem;
+}
