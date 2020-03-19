@@ -252,13 +252,13 @@ const coordinates = [
 (async () => {
   const data = await datastore.get(countryKey);
   console.log(data);
-  coordinates.forEach(item => {
-    if (item.country === "Peru") {
-      console.log({ countries: { lat: item.lat, lon: item.lon } });
-    }
-  });
+  
 })();
-
+coordinates.forEach(item => {
+  if (item.country === "Peru") {
+    console.log({ countries: { lat: item.lat, lon: item.lon } });
+  }
+});
 // The Cloud Datastore key for the new entity
 const taskKey = datastore.key(["all", "id"]);
 // The Cloud Datastore key for the new entity
