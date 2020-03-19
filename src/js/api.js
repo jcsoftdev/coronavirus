@@ -449,7 +449,7 @@ let getall = setInterval(async () => {
    // Saves the entity
    await datastore.save(countries);
   // db.set("countries", resultAll);
-  console.log("Updated The Countries", resultAll);
+  console.log("Updated The Countries");
 }, 6000);
 
 // app.get("/", async function(request, response) {
