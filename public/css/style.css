@@ -1,4 +1,5 @@
 .total-cases{
+  position: fixed;
   width: 400px;
   padding: 20px;
   display: flex;
