@@ -15,7 +15,7 @@ function createTeampleTotalCases({ deaths, cases, recovered, updated }) {
   return `
     <h1 style="text-align:center">Coronavirus</h1>
     <p style="text-align:center">Casos Totales en el mundo</p>
-    <p style="text-align:center">Nota: A las 7pm hora peruana se cuenta como el dia siguiente</p>
+    <p style="text-align:center"><b>Nota:</b> A las 7pm hora peruana se cuenta como el dia siguiente</p>
     <p><strong>Afectados:</strong> ${cases}</p>
     <p><strong>Muertes:</strong> ${deaths}</p>
     <p><strong>Recuperados:</strong> ${recovered}</p>
