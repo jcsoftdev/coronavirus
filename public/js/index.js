@@ -9,7 +9,7 @@ async function renderMap() {
     .addLayer(L.mapbox.styleLayer("mapbox://styles/mapbox/dark-v10"));
   const markers = await renderData();
   map.addLayer(markers);
-  renderTotalCases()
+  renderTotalCases();
 }
 function createTeampleTotalCases({ deaths, cases, recovered, updated }) {
   return `
@@ -61,10 +61,10 @@ async function renderData() {
   }
   return markers;
 }
-async function renderTotalCases(){
-  const $total = document.querySelector('#total')
+async function renderTotalCases() {
+  const $total = document.querySelector("#total");
   const data = await API.getTotalCases();
-  $total.innerHTML = createTeampleTotalCases(data)
+  $total.innerHTML = createTeampleTotalCases(data);
 }
 async function renderMarkers(data, myIcon) {
   var markers = new L.MarkerClusterGroup();
@@ -84,11 +84,24 @@ async function renderMarkers(data, myIcon) {
 
   return markers;
 }
-(function(){
-  const $modal = document.querySelector("#total")
-  const $btn = document.querySelector("#btn")
-  $btn.addEventListener('click',(e)=>{
-    $modal.style.display == 'flex' ?  $modal.style.display = 'none' : $modal.style.display = 'flex'
-  })
-})()
+(function() {
+  const $modal = document.querySelector("#total");
+  $modal.style.display = "flex";
+  const $btn = document.querySelector("#btn");
+  $btn.addEventListener("click", e => {
+    $modal.style.display == "flex"
+      ? ((e) => {
+          $btn.innerHTML='⭕'
+          $btn.style.borderRadius='1rem'
+          $modal.style.display = "none";
+        })()
+        : (() => {
+          $btn.style.borderRadius='1rem 1rem 0 0'
+          $btn.innerHTML='❌'
+        $modal.style.display = "flex";
+
+        })();
+    console.log(e, $modal.style.display);
+  });
+})();
 renderMap();

@@ -38,6 +38,7 @@
   font-weight: bold;
   animation: btn .5s ease-in;
   cursor: pointer;
+  width: auto;
 }
 .total-cases #total p{
   margin: 0;
