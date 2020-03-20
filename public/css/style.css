@@ -19,24 +19,24 @@
 .total-cases p:first-child{
   display: relative;
   margin:0;
-  flex-direction: row-reverse;
+  top: 0;
+  height: 2rem;
 }
 .total-cases p button{
   position: absolute;
   right: 0;
-  top: 3rem;
+  top: 0rem;
   background-color: rgba(240, 248, 255, 0.74);
   border: 0;
   border-radius: 1rem 1rem 0 0;
-  padding: .5rem;
+  height: 2rem;
   width: 2rem;
   margin: 0;
   outline-style: none;
   color: green;
   font-size: 1rem;
   font-weight: bold;
-  transition: top .5s ease-in;
-  animation: btn;
+  animation: btn .5s ease-in;
 }
 .total-cases #total p{
   margin: 0;
@@ -53,8 +53,8 @@
   0%{
     top: 3rem;
   }
-  80%{
-    top: -2rem;
+  90%{
+    top: -1rem;
   }
   100%{
     top: 0
