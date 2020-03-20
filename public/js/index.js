@@ -88,7 +88,7 @@ async function renderMarkers(data, myIcon) {
   const $modal = document.querySelector("#total")
   const $btn = document.querySelector("#btn")
   $btn.addEventListener('click',(e)=>{
-    $modal.style.display == 'block' ?  $modal.style.display = 'none' : $modal.style.display = 'block'
+    $modal.style.display == 'flex' ?  $modal.style.display = 'none' : $modal.style.display = 'flex'
   })
 })()
 renderMap();
