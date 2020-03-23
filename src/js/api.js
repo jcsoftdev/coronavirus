@@ -236,7 +236,7 @@ const coordinates = [
   { country: "Bermuda", lat: 32.2942, lon: -64.7839 },
   { country: "Isle of Man", lat: 54.1504, lon: -4.48 },
   { country: "Micronesia  Federated", lat: 6.9166, lon: 158.15 },
-  { country: "Turks And Caicos Islands", lat: 21.4664, lon: -71.136 },
+  { country: "Turks and Caicos", lat: 21.4664, lon: -71.136 },
   { country: "Cayman Islands", lat: 19.2804, lon: -81.33 },
   { country: "Cook Islands", lat: -21.25, lon: -159.75 },
   { country: "Saint Helena", lat: -7.9286, lon: -14.4119 },
