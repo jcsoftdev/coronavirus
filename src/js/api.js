@@ -121,6 +121,7 @@ const coordinates = [
   { country: "Serbia", lat: 44.8186, lon: 20.468 },
   { country: "Tajikistan", lat: 38.56, lon: 68.7739 },
   { country: "Denmark", lat: 55.6786, lon: 12.5635 },
+  { country: "Myanmar", lat: 21.9139652, lon: 95.9562225 },
   { country: "Jordan", lat: 31.95, lon: 35.9333 },
   { country: "Ireland", lat: 53.3331, lon: -6.2489 },
   { country: "Liberia", lat: 6.3106, lon: -10.8048 },
