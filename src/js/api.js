@@ -329,7 +329,8 @@ let getall = setInterval(async () => {
     const cell = countriesTableCells[i];
     // get country
     if (i % totalColumns === countryColIndex) {
-      let country =
+      try {
+        let country =
         cell.children[0].data ||
         cell.children[0].children[0].data ||
         // country name with link has another level
@@ -341,6 +342,10 @@ let getall = setInterval(async () => {
         // parse with hyperlink
         country = cell.children[0].next.children[0].data || "";
       }
+      } catch (error) {
+        country=""
+      }
+      
       resultAll.push({
         country: country.trim() || ""
       });
