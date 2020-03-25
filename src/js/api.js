@@ -250,7 +250,6 @@ const coordinates = [
   }
 ];
 
-
 coordinates.forEach(item => {
   if (item.country === "Peru") {
     console.log({ countries: { lat: item.lat, lon: item.lon } });
@@ -264,7 +263,6 @@ const countryKey = datastore.key(["countries", "id"]);
 (async () => {
   const data = await datastore.get(allKey);
   console.log(data[0]);
-  
 })();
 
 let getall = setInterval(async () => {
@@ -329,23 +327,24 @@ let getall = setInterval(async () => {
     const cell = countriesTableCells[i];
     // get country
     if (i % totalColumns === countryColIndex) {
+      let country
       try {
-        let country =
-        cell.children[0].data ||
-        cell.children[0].children[0].data ||
-        // country name with link has another level
-        cell.children[0].children[0].children[0].data ||
-        cell.children[0].children[0].children[0].children[0].data ||
-        "";
-      country = country.trim();
-      if (country.length === 0) {
-        // parse with hyperlink
-        country = cell.children[0].next.children[0].data || "";
-      }
+        country =
+          cell.children[0].data ||
+          cell.children[0].children[0].data ||
+          // country name with link has another level
+          cell.children[0].children[0].children[0].data ||
+          cell.children[0].children[0].children[0].children[0].data ||
+          "";
+        country = country.trim();
+        if (country.length === 0) {
+          // parse with hyperlink
+          country = cell.children[0].next.children[0].data || "";
+        }
       } catch (error) {
-        country=""
+        country = "";
       }
-      
+
       try {
         resultAll.push({
           country: country.trim() || ""
@@ -363,7 +362,6 @@ let getall = setInterval(async () => {
           country: ""
         });
       }
-      
     }
     // get cases
     if (i % totalColumns === casesColIndex) {
@@ -401,7 +399,7 @@ let getall = setInterval(async () => {
     }
     // get deaths
     if (i % totalColumns === deathsColIndex) {
-      let deaths 
+      let deaths;
       try {
         if (cell.children[0]) {
           deaths = cell.children[0].data || "";
@@ -485,7 +483,6 @@ let getall = setInterval(async () => {
   console.log("Updated The Countries");
 }, 6000);
 
-
 let listener = app.listen(8081, function() {
   console.log("Your app is listening on port " + listener.address().port);
 });
@@ -494,13 +491,13 @@ app.use(cors());
 app.use("/", express.static("public"));
 app.get("/all/", async function(req, res) {
   const data = await datastore.get(allKey);
-  let all = data[0]
+  let all = data[0];
   res.send(all);
 });
 
 app.get("/countries/", async function(req, res) {
   const data = await datastore.get(countryKey);
-  let countries = data[0].countries
+  let countries = data[0].countries;
   if (req.query["sort"]) {
     try {
       const sortProp = req.query["sort"];
