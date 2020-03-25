@@ -313,7 +313,7 @@ let getall = setInterval(async () => {
     .children("td");
 
   // NOTE: this will change when table format change in website
-  const totalColumns = 9;
+  const totalColumns = 10;
   const countryColIndex = 0;
   const casesColIndex = 1;
   const todayCasesColIndex = 2;
@@ -336,8 +336,6 @@ let getall = setInterval(async () => {
           cell.children[0].children[0].children[0].data ||
           cell.children[0].children[0].children[0].children[0].data ||
           "";
-        console.log(country);
-        console.log('pase uno');
         country = country.trim();
         if (country.length === 0) {
           // parse with hyperlink
@@ -471,7 +469,7 @@ let getall = setInterval(async () => {
       countries: resultAll
     }
   };
-
+  console.log(countries);
   // Saves the entity
   await datastore.save(countries);
   //  const countryKey = datastore.key(['Company', 123]);
