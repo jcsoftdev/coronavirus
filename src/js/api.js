@@ -346,9 +346,15 @@ let getall = setInterval(async () => {
         country=""
       }
       
-      resultAll.push({
-        country: country.trim() || ""
-      });
+      try {
+        resultAll.push({
+          country: country.trim() || ""
+        });
+      } catch (error) {
+        resultAll.push({
+          country: ""
+        });
+      }
       coordinates.map(item => {
         if (item.country === country.trim()) {
           resultAll[resultAll.length - 1].coordinates = {
