@@ -112,14 +112,18 @@ let getall = setInterval(async () => {
           error, 'Juan CArlos error', country
         );
       }
-      coordinates.map(item => {
-        if (item.country == country.trim()) {
-          resultAll[resultAll.length - 1].coordinates = {
-            lat: item.lat,
-            lon: item.lon
-          };
-        }
-      });
+      if (coordinates.country === country.trim()) {
+        resultAll[resultAll.length - 1].coordinates = {
+          lat: item.lat,
+          lon: item.lon
+        };
+      }else{
+        resultAll[resultAll.length - 1].coordinates = {
+          lat: 0,
+          lon: 0
+        };
+        console.log('Ther is an error in ', country);
+      }
     }
     // get cases
     if (i % totalColumns === casesColIndex) {
