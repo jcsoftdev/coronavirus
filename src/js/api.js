@@ -118,11 +118,7 @@ let getall = setInterval(async () => {
           lon: item.lon
         };
       }else{
-        resultAll[resultAll.length - 1].coordinates = {
-          lat: 0,
-          lon: 0
-        };
-        console.log('Ther is an error in ', country);
+        new Error('There is an error in ', country)
       }
     }
     // get cases
