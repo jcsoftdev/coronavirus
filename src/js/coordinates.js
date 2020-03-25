@@ -199,7 +199,7 @@ const coordinates = [
   { country: "Kiribati", lat: 1.3382, lon: 173.0176 },
   { country: "Marshall Islands", lat: 7.103, lon: 171.38 },
   { country: "Dominica", lat: 15.301, lon: -61.387 },
-  { country: "Saint Kitts And Nevis", lat: 17.302, lon: -62.717 },
+  { country: "Saint Kitts and Nevis", lat: 17.302, lon: -62.717 },
   { country: "Belize", lat: 17.252, lon: -88.7671 },
   { country: "American Samoa", lat: -14.274, lon: -170.7046 },
   { country: "Tuvalu", lat: -8.5167, lon: 179.2166 },
