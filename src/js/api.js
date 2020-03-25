@@ -89,7 +89,7 @@ let getall = setInterval(async () => {
   for (let i = 0; i < countriesTableCells.length - totalColumns; i += 1) {
     const cell = countriesTableCells[i];
      // get country
-     if (i % totalColumns === countryColIndex) {
+    if (i % totalColumns === countryColIndex) {
       let country
       try {
         country =
@@ -113,7 +113,7 @@ let getall = setInterval(async () => {
         );
       }
       coordinates.map(item => {
-        if (item.country === country.trim()) {
+        if (item.country == country.trim()) {
           resultAll[resultAll.length - 1].coordinates = {
             lat: item.lat,
             lon: item.lon
