@@ -234,3 +234,8 @@ const coordinates = [
     lon: -36.508
   }
 ];
+
+
+
+
+console.log('         aodk             '.trim())

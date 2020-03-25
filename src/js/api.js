@@ -325,8 +325,8 @@ let getall = setInterval(async () => {
   // minus totalColumns to skip last row, which is total
   for (let i = 0; i < countriesTableCells.length - totalColumns; i += 1) {
     const cell = countriesTableCells[i];
-    // get country
-    if (i % totalColumns === countryColIndex) {
+     // get country
+     if (i % totalColumns === countryColIndex) {
       let country
       try {
         country =
@@ -336,33 +336,27 @@ let getall = setInterval(async () => {
           cell.children[0].children[0].children[0].data ||
           cell.children[0].children[0].children[0].children[0].data ||
           "";
-          console.log(country)
         country = country.trim();
         if (country.length === 0) {
           // parse with hyperlink
           country = cell.children[0].next.children[0].data || "";
         }
-      } catch (error) {
-        country = "";
-      }
-
-      try {
         resultAll.push({
           country: country.trim() || ""
         });
-        coordinates.map(item => {
-          if (item.country === country.trim()) {
-            resultAll[resultAll.length - 1].coordinates = {
-              lat: item.lat,
-              lon: item.lon
-            };
-          }
-        });
       } catch (error) {
-        resultAll.push({
-          country: ""
-        });
+        console.log(
+          error, 'Juan CArlos error'
+        );
       }
+      coordinates.map(item => {
+        if (item.country === country.trim()) {
+          resultAll[resultAll.length - 1].coordinates = {
+            lat: item.lat,
+            lon: item.lon
+          };
+        }
+      });
     }
     // get cases
     if (i % totalColumns === casesColIndex) {
