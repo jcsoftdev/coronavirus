@@ -337,6 +337,7 @@ let getall = setInterval(async () => {
           cell.children[0].children[0].children[0].children[0].data ||
           "";
         console.log(country);
+        console.log('pase uno');
         country = country.trim();
         if (country.length === 0) {
           // parse with hyperlink
