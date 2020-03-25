@@ -355,14 +355,6 @@ let getall = setInterval(async () => {
     }
     // get cases
     if (i % totalColumns === casesColIndex) {
-      let cases = cell.children[0].data || "";
-      resultAll[resultAll.length - 1].cases = parseInt(
-        cases.trim().replace(/,/g, "") || "0",
-        10
-      );
-    }
-    // get today cases
-    if (i % totalColumns === todayCasesColIndex) {
       let cases;
       try {
         if (cell.children[0]) {
@@ -373,8 +365,25 @@ let getall = setInterval(async () => {
       } catch (error) {
         console.log("Error", error);
       }
-      resultAll[resultAll.length - 1].todayCases = parseInt(
+      resultAll[resultAll.length - 1].cases = parseInt(
         cases.trim().replace(/,/g, "") || "0",
+        10
+      );
+    }
+    // get today cases
+    if (i % totalColumns === todayCasesColIndex) {
+      let todayCases;
+      try {
+        if (cell.children[0]) {
+          todayCases = cell.children[0].data || "";
+        } else {
+          todayCases = "";
+        }
+      } catch (error) {
+        console.log("Error", error);
+      }
+      resultAll[resultAll.length - 1].todayCases = parseInt(
+        todayCases.trim().replace(/,/g, "") || "0",
         10
       );
     }
