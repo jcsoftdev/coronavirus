@@ -36,13 +36,13 @@ const coordinates = [
   { country: "Australia", lat: -33.92, lon: 151.1852 },
   { country: "Saudi Arabia", lat: 24.6408, lon: 46.7727 },
   { country: "Burma", lat: 16.7834, lon: 96.1667 },
-  { country: "Ivory Coast", lat: 7.545511, lon: -5.547545},
+  { country: "Ivory Coast", lat: 7.545511, lon: -5.547545 },
   { country: "South Africa", lat: -26.17, lon: 28.03 },
   { country: "Germany", lat: 52.5218, lon: 13.4015 },
   { country: "Algeria", lat: 36.7631, lon: 3.0506 },
   { country: "Italy", lat: 41.896, lon: 12.4833 },
   { country: "Gambia", lat: 13.4539, lon: -16.5917 },
-  { country: "Vatican City", lat: 41.902360, lon: 12.453320 },
+  { country: "Vatican City", lat: 41.90236, lon: 12.45332 },
   { country: "Afghanistan", lat: 37.5663, lon: 126.9997 },
   { country: "Greece", lat: 6.9166, lon: 158.15 },
   { country: "Morocco", lat: 33.6, lon: -7.6164 },
@@ -110,6 +110,7 @@ const coordinates = [
   { country: "Serbia", lat: 44.8186, lon: 20.468 },
   { country: "Tajikistan", lat: 38.56, lon: 68.7739 },
   { country: "Denmark", lat: 55.6786, lon: 12.5635 },
+  { country: "Myanmar", lat: 21.9139652, lon: 95.9562225 },
   { country: "Jordan", lat: 31.95, lon: 35.9333 },
   { country: "Ireland", lat: 53.3331, lon: -6.2489 },
   { country: "Liberia", lat: 6.3106, lon: -10.8048 },
@@ -123,8 +124,9 @@ const coordinates = [
   { country: "Albania", lat: 41.3275, lon: 19.8189 },
   { country: "Nepal", lat: 27.7167, lon: 85.3166 },
   { country: "Mongolia", lat: 47.9167, lon: 106.9166 },
-  { country: "Montserrat", lat: 16.7494365 , lon:-62.1927489 },
+  { country: "Montserrat", lat: 16.7494365, lon: -62.1927489 },
   { country: "Rwanda", lat: -1.9536, lon: 30.0605 },
+  { country: "DRC", lat: -4.322447, lon: 15.307045 },
   { country: "Kyrgyzstan", lat: 42.8731, lon: 74.5852 },
   { country: "Norway", lat: 59.9167, lon: 10.75 },
   { country: "CAR", lat: 4.3666, lon: 18.5583 },
@@ -163,6 +165,7 @@ const coordinates = [
   { country: "Cyprus", lat: 6.9166, lon: 158.15 },
   { country: "Sri Lanka", lat: 6.932, lon: 79.8578 },
   { country: "Botswana", lat: -24.6463, lon: 25.9119 },
+  { country: "St. Barth", lat: 17.89618, lon: -62.84978 },
   { country: "Barbados", lat: 13.102, lon: -59.6165 },
   { country: "Fiji", lat: -18.133, lon: 178.4417 },
   { country: "Iceland", lat: 64.15, lon: -21.95 },
@@ -186,6 +189,7 @@ const coordinates = [
   { country: "U.S. Virgin Islands", lat: 17.72751, lon: 18.3419 },
   { country: "Tonga", lat: -21.1385, lon: -175.2206 },
   { country: "Saint Lucia", lat: 14.002, lon: -61 },
+  { country: "Saint Martin", lat: 18.073099, lon: -63.082199 },
   { country: "Monaco", lat: 43.7396, lon: 7.4069 },
   { country: "Liechtenstein", lat: 47.1337, lon: 9.5167 },
   { country: "Antigua and Barbuda", lat: 17.118, lon: -61.85 },
@@ -222,7 +226,7 @@ const coordinates = [
   { country: "Bermuda", lat: 32.2942, lon: -64.7839 },
   { country: "Isle of Man", lat: 54.1504, lon: -4.48 },
   { country: "Micronesia  Federated", lat: 6.9166, lon: 158.15 },
-  { country: "Turks And Caicos Islands", lat: 21.4664, lon: -71.136 },
+  { country: "Turks and Caicos", lat: 21.4664, lon: -71.136 },
   { country: "Cayman Islands", lat: 19.2804, lon: -81.33 },
   { country: "Cook Islands", lat: -21.25, lon: -159.75 },
   { country: "Saint Helena", lat: -7.9286, lon: -14.4119 },
@@ -235,7 +239,4 @@ const coordinates = [
   }
 ];
 
-
-
-
-console.log('         aodk             '.trim())
+module.exports = coordinates
