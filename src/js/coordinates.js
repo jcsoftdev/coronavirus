@@ -186,7 +186,7 @@ const coordinates = [
   { country: "Andorra", lat: 42.5, lon: 1.5165 },
   { country: "St. Vincent Grenadines", lat: 13.1483, lon: -61.2121 },
   { country: "Vanuatu", lat: -17.7334, lon: 168.3166 },
-  { country: "U.S. Virgin Islands", lat: 17.72751, lon: 18.3419 },
+  { country: "British Virgin Islands", lat: 17.72751, lon: 18.3419 },
   { country: "Tonga", lat: -21.1385, lon: -175.2206 },
   { country: "Saint Lucia", lat: 14.002, lon: -61 },
   { country: "Saint Martin", lat: 18.073099, lon: -63.082199 },
