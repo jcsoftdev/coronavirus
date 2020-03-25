@@ -4,6 +4,7 @@ let cors = require("cors");
 let axios = require("axios");
 let cheerio = require("cheerio");
 let coordinates = require('./coordinates')
+console.log(coordinates);
 // let db = require("quick.db");
 // Imports the Google Cloud client library
 const { Datastore } = require("@google-cloud/datastore");
