@@ -350,19 +350,20 @@ let getall = setInterval(async () => {
         resultAll.push({
           country: country.trim() || ""
         });
+        coordinates.map(item => {
+          if (item.country === country.trim()) {
+            resultAll[resultAll.length - 1].coordinates = {
+              lat: item.lat,
+              lon: item.lon
+            };
+          }
+        });
       } catch (error) {
         resultAll.push({
           country: ""
         });
       }
-      coordinates.map(item => {
-        if (item.country === country.trim()) {
-          resultAll[resultAll.length - 1].coordinates = {
-            lat: item.lat,
-            lon: item.lon
-          };
-        }
-      });
+      
     }
     // get cases
     if (i % totalColumns === casesColIndex) {
