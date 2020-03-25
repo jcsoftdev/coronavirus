@@ -336,6 +336,7 @@ let getall = setInterval(async () => {
           cell.children[0].children[0].children[0].data ||
           cell.children[0].children[0].children[0].children[0].data ||
           "";
+        console.log(country);
         country = country.trim();
         if (country.length === 0) {
           // parse with hyperlink
@@ -346,7 +347,7 @@ let getall = setInterval(async () => {
         });
       } catch (error) {
         console.log(
-          error, 'Juan CArlos error'
+          error, 'Juan CArlos error', country
         );
       }
       coordinates.map(item => {
