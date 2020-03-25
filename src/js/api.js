@@ -380,7 +380,16 @@ let getall = setInterval(async () => {
     }
     // get deaths
     if (i % totalColumns === deathsColIndex) {
-      let deaths = cell.children[0].data || "";
+      let deaths 
+      try {
+        if (cell.children[0]) {
+          deaths = cell.children[0].data || "";
+        } else {
+          deaths = "";
+        }
+      } catch (error) {
+        console.log("Error", error);
+      }
       resultAll[resultAll.length - 1].deaths = parseInt(
         deaths.trim().replace(/,/g, "") || "0",
         10
