@@ -115,8 +115,8 @@ let getall = setInterval(async () => {
       const selectCountry = coordinates.find(c => c.country === country.trim())
       if (selectCountry) {
         resultAll[resultAll.length - 1].coordinates = {
-          lat: item.lat,
-          lon: item.lon
+          lat: selectCountry.lat,
+          lon: selectCountry.lon
         };
       }else{
         console.log('There is an error in ', country)
