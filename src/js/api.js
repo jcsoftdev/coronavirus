@@ -232,7 +232,7 @@ let getall = setInterval(async () => {
       countries: resultAll
     }
   };
-  console.log(countries);
+  // console.log(countries);
   // Saves the entity
   await datastore.save(countries);
   //  const countryKey = datastore.key(['Company', 123]);
