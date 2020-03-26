@@ -4,7 +4,6 @@ let cors = require("cors");
 let axios = require("axios");
 let cheerio = require("cheerio");
 let coordinates = require('./coordinates')
-console.log(coordinates);
 // let db = require("quick.db");
 // Imports the Google Cloud client library
 const { Datastore } = require("@google-cloud/datastore");
@@ -12,12 +11,6 @@ const { Datastore } = require("@google-cloud/datastore");
 // Creates a client
 const datastore = new Datastore();
 
-
-coordinates.forEach(item => {
-  if (item.country === "Peru") {
-    console.log({ countries: { lat: item.lat, lon: item.lon } });
-  }
-});
 // The Cloud Datastore key for the new entity
 const allKey = datastore.key(["all", "id"]);
 // The Cloud Datastore key for the new entity
