@@ -112,13 +112,14 @@ let getall = setInterval(async () => {
           error, 'Juan CArlos error', country
         );
       }
-      if (coordinates.country === country.trim()) {
+      const selectCountry = coordinates.find(c => c.country === country.trim())
+      if (selectCountry) {
         resultAll[resultAll.length - 1].coordinates = {
           lat: item.lat,
           lon: item.lon
         };
       }else{
-        new Error('There is an error in ', country)
+        console.log('There is an error in ', country)
       }
     }
     // get cases
