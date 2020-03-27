@@ -13,7 +13,7 @@ async function renderMap() {
 }
 function createTeampleTotalCases({ deaths, cases, recovered, updated }) {
   return `
-    <h1 style="text-align:center">All cases in the world</p>
+    <h1 style="text-align:center">All cases in the world</h1>
     <p style="text-align:center"><b>Nota:</b> At 7:00 PM EST</p>
     <p><strong>Cases:</strong> ${cases}</p>
     <p><strong>Deaths:</strong> ${deaths}</p>
