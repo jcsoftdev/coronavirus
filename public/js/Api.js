@@ -6,9 +6,6 @@ class Api {
   async getData(URL) {
     const response = await axios.get(URL_BASE.concat(URL), {
       mode: 'cors',
-      headers: {
-        'Access-Control-Allow-Origin':'https://corona.lmao.ninja/'
-      }
     });
     const data = await response.data;
     return data;

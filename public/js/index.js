@@ -13,13 +13,12 @@ async function renderMap() {
 }
 function createTeampleTotalCases({ deaths, cases, recovered, updated }) {
   return `
-    <h1 style="text-align:center">Coronavirus</h1>
-    <p style="text-align:center">Casos Totales en el mundo</p>
-    <p style="text-align:center"><b>Nota:</b> A las 7pm hora peruana se cuenta como el dia siguiente</p>
-    <p><strong>Afectados:</strong> ${cases}</p>
-    <p><strong>Muertes:</strong> ${deaths}</p>
-    <p><strong>Recuperados:</strong> ${recovered}</p>
-    <p><strong>Actualizacion:</strong> ${Date(updated)}</p>
+    <h1 style="text-align:center">All cases in the world</p>
+    <p style="text-align:center"><b>Nota:</b> At 7:00 PM EST</p>
+    <p><strong>Cases:</strong> ${cases}</p>
+    <p><strong>Deaths:</strong> ${deaths}</p>
+    <p><strong>Recovered:</strong> ${recovered}</p>
+    <p><strong>Updated:</strong> ${Date(updated)}</p>
   `;
 }
 function renderExtractData({
@@ -34,12 +33,12 @@ function renderExtractData({
   return `
   <div>
     <p> <strong>${country} </strong> </p>
-    <p> confirmados: ${cases} </p>
-    <p> confirmados (hoy): ${todayCases} </p>
-    <p style="color:red"> muertes: ${deaths} </p>
-    <p style="color:red"> muertes (hoy): ${todayDeaths} </p>
-    <p style="color:green"> recuperados: ${recovered} </p>
-    <p style="color:orange"> criticos: ${critical} </p>
+    <p> Confirmed: ${cases} </p>
+    <p> Confirmed (today): ${todayCases} </p>
+    <p style="color:red"> Deaths: ${deaths} </p>
+    <p style="color:red"> Deaths (today): ${todayDeaths} </p>
+    <p style="color:green"> Recovered: ${recovered} </p>
+    <p style="color:orange"> Critical: ${critical} </p>
   </div>
 `;
 }
