@@ -184,6 +184,7 @@ const coordinates = [
   { country: "Solomon Islands", lat: -9.438, lon: 159.9498 },
   { country: "Aruba", lat: 12.5304, lon: -70.029 },
   { country: "Samoa", lat: -13.8415, lon: -171.7386 },
+  { country: "MS Zaandam", lat: 40.4554, lon: 73.5825 },
   { country: "Andorra", lat: 42.5, lon: 1.5165 },
   { country: "St. Vincent Grenadines", lat: 13.1483, lon: -61.2121 },
   { country: "Vanuatu", lat: -17.7334, lon: 168.3166 },
