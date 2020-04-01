@@ -191,6 +191,7 @@ const coordinates = [
   { country: "British Virgin Islands", lat: 18.093611, lon:  -64.830278 },
   { country: "Tonga", lat: -21.1385, lon: -175.2206 },
   { country: "Saint Lucia", lat: 14.002, lon: -61 },
+  { country: "Caribbean Netherlands", lat: 12.152219, lon: -68.216231 },
   { country: "Saint Martin", lat: 18.073099, lon: -63.082199 },
   { country: "Monaco", lat: 43.7396, lon: 7.4069 },
   { country: "Liechtenstein", lat: 47.1337, lon: 9.5167 },
