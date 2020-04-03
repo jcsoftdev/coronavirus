@@ -233,7 +233,7 @@ const coordinates = [
   { country: "Cayman Islands", lat: 19.2804, lon: -81.33 },
   { country: "Cook Islands", lat: -21.25, lon: -159.75 },
   { country: "Saint Helena", lat: -7.9286, lon: -14.4119 },
-  { country: "Falkland Islands (Islas Malvinas)", lat: -51.7, lon: -57.85 },
+  { country: "Falkland Islands", lat: -51.7, lon: -57.85 },
   { country: "Channel Islands", lat: 49.372284, lon: -2.364351 },
   {
     country: "South Georgia And South Sandwich Islands",
