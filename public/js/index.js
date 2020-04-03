@@ -46,7 +46,7 @@ const API = new Api();
 async function renderData() {
   const myIcon = L.icon({
     iconRetinaUrl:
-      "../img/covid-2.png",
+      "../img/covid-2.svg",
     iconSize: [55, 55]
   });
   let markers = null;
