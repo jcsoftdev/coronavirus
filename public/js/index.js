@@ -46,7 +46,7 @@ const API = new Api();
 async function renderData() {
   const myIcon = L.icon({
     iconRetinaUrl:
-      "https://www.flaticon.com/premium-icon/icons/svg/2667/2667578.svg",
+      "../img/covid-2.png",
     iconSize: [55, 55]
   });
   let markers = null;
