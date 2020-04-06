@@ -98,9 +98,13 @@ let getall = setInterval(async () => {
           error, 'Juan CArlos error', country
         );
       }
-      resultAll.push({
-        country: country.trim() || ""
-      });
+      try {
+        resultAll.push({
+          country: country.trim() || ""
+        });
+      } catch (error) {
+        console.log(error);
+      }
       const selectCountry = coordinates.find(c => c.country === country.trim())
       if (selectCountry) {
         resultAll[resultAll.length - 1].coordinates = {
