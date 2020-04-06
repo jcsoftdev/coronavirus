@@ -95,7 +95,7 @@ let getall = setInterval(async () => {
         
       } catch (error) {
         console.log(
-          error, 'Juan CArlos error', country, cell.children[0].data
+          error, 'Juan CArlos error', country, cell.children[0]
         );
       }
       try {
