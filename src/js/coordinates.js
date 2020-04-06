@@ -244,6 +244,11 @@ const coordinates = [
     country: "Western Sahara",
     lat: 24.2155266,
     lon: -12.8858337
+  },
+  {
+    country: "Saint Pierre Miquelon",
+    lat: 46.9419365,
+    lon: -56.2711105
   }
 ];
 
