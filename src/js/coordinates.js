@@ -241,9 +241,9 @@ const coordinates = [
     lon: -36.508
   },
   {
-    country: "World",
-    lat: 0,
-    lon: 0
+    country: "Western Sahara",
+    lat: 24.2155266,
+    lon: -12.8858337
   }
 ];
 
