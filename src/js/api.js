@@ -92,14 +92,15 @@ let getall = setInterval(async () => {
           country = cell.children[0].next.children[0].data || "";
         }
         console.log(country, cell.children[0].data);
-        resultAll.push({
-          country: country.trim() || ""
-        });
+        
       } catch (error) {
         console.log(
           error, 'Juan CArlos error', country
         );
       }
+      resultAll.push({
+        country: country.trim() || ""
+      });
       const selectCountry = coordinates.find(c => c.country === country.trim())
       if (selectCountry) {
         resultAll[resultAll.length - 1].coordinates = {
