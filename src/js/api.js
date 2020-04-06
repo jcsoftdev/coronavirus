@@ -85,7 +85,7 @@ let getall = setInterval(async () => {
     if (i % totalColumns === countryColIndex) {
       let country
       try {
-        country =zcell.children[0].data ||
+        country =cell.children[0].data ||
           cell.children[0].children[0].data ||
           // country name with link has another level
           cell.children[0].children[0].children[0].data ||
