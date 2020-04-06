@@ -249,6 +249,11 @@ const coordinates = [
     country: "Saint Pierre Miquelon",
     lat: 46.9419365,
     lon: -56.2711105
+  },
+  {
+    country: "Sao Tome and Principe",
+    lat: 0.18636,
+    lon: 6.613081
   }
 ];
 
