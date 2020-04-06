@@ -87,12 +87,11 @@ let getall = setInterval(async () => {
       try {
         country = cell.children[0].data ||cell.children[0].children[0].data ||cell.children[0].children[0].children[0].data || cell.children[0].children[0].children[0].children[0].data ||"";
         country = country.trim();
-        console.log(country, cell.children[0]);
         if (country.length === 0) {
           // parse with hyperlink
           country = cell.children[0].next.children[0].data || "";
         }
-        console.log(country, cell.children[0]);
+        console.log(country, cell.children[0].data);
         resultAll.push({
           country: country.trim() || ""
         });
