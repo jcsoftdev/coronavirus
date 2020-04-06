@@ -67,9 +67,9 @@ let getall = setInterval(async () => {
     .children("tbody")
     .children("tr")
     .children("td");
-  console.log((countriesTableCells[1].parent.children.length - 1)/2,"cantidad de columnas");
+  console.log((countriesTableCells[0].parent.children.length - 1)/2,"cantidad de columnas");
   // NOTE: this will change when table format change in website
-  const totalColumns = 12;
+  const totalColumns = (countriesTableCells[1].parent.children.length - 1)/2;
   const countryColIndex = 0;
   const casesColIndex = 1;
   const todayCasesColIndex = 2;
