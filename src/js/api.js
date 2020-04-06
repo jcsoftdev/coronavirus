@@ -97,9 +97,12 @@ let getall = setInterval(async () => {
           // parse with hyperlink
           country = cell.children[0].next.children[0].data || "";
         }
-        resultAll.push({
-          country: country.trim() || ""
-        });
+        if (country!=="World") {
+          
+          resultAll.push({
+            country: country.trim() || ""
+          });
+        }
       } catch (error) {
         console.log(
           error, 'Juan CArlos error', country
