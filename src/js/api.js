@@ -67,7 +67,7 @@ let getall = setInterval(async () => {
     .children("tbody")
     .children("tr")
     .children("td");
-
+  console.log(countriesTableCells);
   // NOTE: this will change when table format change in website
   const totalColumns = 12;
   const countryColIndex = 0;
