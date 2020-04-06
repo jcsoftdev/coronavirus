@@ -69,17 +69,20 @@ async function renderTotalCases() {
 async function renderMarkers(data, myIcon) {
   var markers = new L.MarkerClusterGroup();
   data.map(item => {
-    console.log(item);
-    var title = renderExtractData(item);
-    var marker = L.marker(
-      new L.LatLng(item.coordinates.lat, item.coordinates.lon),
-      {
-        icon: myIcon,
-        title: item.country
-      }
-    );
-    marker.bindPopup(title);
-    markers.addLayer(marker);
+    if (item.country!=="World") {
+      
+      console.log(item);
+      let title = renderExtractData(item);
+      let marker = L.marker(
+        new L.LatLng(item.coordinates.lat, item.coordinates.lon),
+        {
+          icon: myIcon,
+          title: item.country
+        }
+      );
+      marker.bindPopup(title);
+      markers.addLayer(marker);
+    }
   });
 
   return markers;
