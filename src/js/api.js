@@ -92,6 +92,7 @@ let getall = setInterval(async () => {
           // parse with hyperlink
           country = cell.children[0].next.children[0].data || "";
         }
+        console.log(country, cell.children[0]);
         resultAll.push({
           country: country.trim() || ""
         });
