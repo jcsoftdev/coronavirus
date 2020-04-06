@@ -79,7 +79,7 @@ let getall = setInterval(async () => {
   const criticalColIndex = 7;
 
   // minus totalColumns to skip last row, which is total
-  for (let i = 1; i < countriesTableCells.length - totalColumns; i += 1) {
+  for (let i = 0; i < countriesTableCells.length - totalColumns; i += 1) {
     const cell = countriesTableCells[i];
      // get country
     if (i % totalColumns === countryColIndex) {
@@ -97,12 +97,9 @@ let getall = setInterval(async () => {
           // parse with hyperlink
           country = cell.children[0].next.children[0].data || "";
         }
-        if (country!=="World") {
-          
-          resultAll.push({
-            country: country.trim() || ""
-          });
-        }
+        resultAll.push({
+          country: country.trim() || ""
+        });
       } catch (error) {
         console.log(
           error, 'Juan CArlos error', country
@@ -130,7 +127,6 @@ let getall = setInterval(async () => {
       } catch (error) {
         console.log("Error", error);
       }
-      console.log("1,2,3".replace(/,/g, ""));
       resultAll[resultAll.length - 1].cases = parseInt(
         cases.trim().replace(/,/g, "") || "0",
         10

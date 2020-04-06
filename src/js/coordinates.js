@@ -240,6 +240,11 @@ const coordinates = [
     lat: -54.2806,
     lon: -36.508
   }
+  {
+    country: "World",
+    lat: 0,
+    lon: 0
+  }
 ];
 
 module.exports = coordinates
